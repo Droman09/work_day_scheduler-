@@ -140,6 +140,11 @@
         var hrFiv = $("#17pm");
         console.log(hrFour)
 
+        ///display value from local storage
+        var valNine = JSON.parse(localStorage.getItem("09:00 am"))
+        hrNine.val(valNine)
+        console.log(valNine)
+
 
         // create a function that would determine if the input is in the past, present or future
         function timeEras(){
@@ -161,6 +166,18 @@
 
 
         /// when save button click, data will be saved in local storage
+        $(".saveButn").on("click", function(){
+          //obtain user input 
+          var userInput = $(this).siblings(".form-control").val().trim();
+          // obtain slot time 
+          var userTime = $(this).siblings(".input-group-prepend").text().trim();
+         
+          //set up local storage
+          localStorage.setItem(userTime, JSON.stringify(userInput)); 
+          ///test 
+          console.log(userTime)
+          console.log(userInput)
+        })
 
 
         /// when reset button is clicked, all data would clear 

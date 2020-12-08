@@ -75,7 +75,7 @@
           <div class="input-group-prepend">
             <span class="input-group-text hour">01:00 pm</span>
           </div>
-          <textarea class="form-control" aria-label="With textarea" id="01pm"></textarea>
+          <textarea class="form-control" aria-label="With textarea" id="13pm"></textarea>
           <button class="btn btn-primary saveButn" type="submit">Save</button>
         </div>
       </div>
@@ -84,7 +84,7 @@
           <div class="input-group-prepend">
             <span class="input-group-text hour">02:00 pm</span>
           </div>
-          <textarea class="form-control" aria-label="With textarea" id="02pm"></textarea>
+          <textarea class="form-control" aria-label="With textarea" id="14pm"></textarea>
           <button class="btn btn-primary saveButn" type="submit">Save</button>
         </div>
       </div>
@@ -93,7 +93,7 @@
           <div class="input-group-prepend">
             <span class="input-group-text hour">03:00 pm</span>
           </div>
-          <textarea class="form-control" aria-label="With textarea" id="03pm"></textarea>
+          <textarea class="form-control" aria-label="With textarea" id="15pm"></textarea>
           <button class="btn btn-primary saveButn" type="submit">Save</button>
         </div>
       </div>
@@ -102,7 +102,7 @@
           <div class="input-group-prepend">
             <span class="input-group-text hour">04:00 pm</span>
           </div>
-          <textarea class="form-control" aria-label="With textarea" id="04pm"></textarea>
+          <textarea class="form-control" aria-label="With textarea" id="16pm"></textarea>
           <button class="btn btn-primary saveButn" type="submit">Save</button>
         </div>
       </div>
@@ -111,7 +111,7 @@
           <div class="input-group-prepend">
             <span class="input-group-text hour">05:00 pm</span>
           </div>
-          <textarea class="form-control" aria-label="With textarea" id="05pm"></textarea>
+          <textarea class="form-control" aria-label="With textarea" id="17pm"></textarea>
           <button class="btn btn-primary saveButn" type="submit">Save</button>
         </div>
       </div>
@@ -129,9 +129,35 @@
         // specify storage object item 
 
         // get elements by ID 
+        var hrNine = $("#09am");
+        var hrTen = $("#10am");
+        var hrElev = $("#11am");
+        var hrTvel = $("#12am");
+        var hrOne = $("#13pm");
+        var hrTwo = $("#14pm");
+        var hrThr = $("#15pm");
+        var hrFour = $("#16pm");
+        var hrFiv = $("#17pm");
+        console.log(hrFour)
 
 
         // create a function that would determine if the input is in the past, present or future
+        function timeEras(){
+          $(".form-control").each(function(){
+            var time = parseInt($(this).attr("id"))
+            console.log(time)
+
+            if (time > currentHour){
+              $(this).addClass("past");
+            } else if (time < currentHour){
+              $(this).addClass("past");
+            } else {
+              $(this).addClass("present");
+            }
+          })
+
+        }
+        timeEras()
 
 
         /// when save button click, data will be saved in local storage

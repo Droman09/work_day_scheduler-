@@ -3,5 +3,5 @@ This is a calendar application that allows a user to save events for each hour o
 
 I used local storage to store and access data from the browser. Data will be displayed in the time slots that the user selected and wont reset unless the user clicks on the reset button. 
 
-Work day schedular homepage
+Work day scheduler homepage
 ![](page.png)

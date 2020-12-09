@@ -124,9 +124,6 @@
       $(document).ready(function () {
         $("#currentDay").text(moment().format('LLLL'));
         var currentHour = moment().hour();
-        // console.log(currentHour)
-
-        // specify storage object item 
 
         // get elements by ID 
         var hrNine = $("#09am");
@@ -140,12 +137,38 @@
         var hrFiv = $("#17pm");
         console.log(hrFour)
 
+        ///reset button 
+        var resetButn = $("<button>").addClass("btn btn-primary").text("Reset")
+        $("header").append(resetButn)
+
         ///display value from local storage
-        var valNine = JSON.parse(localStorage.getItem("09:00 am"))
-        hrNine.val(valNine)
-        console.log(valNine)
+        var valNine = JSON.parse(localStorage.getItem("09:00 am"));
+        hrNine.val(valNine);
 
+        var valTen = JSON.parse(localStorage.getItem("10:00 am"));
+        hrTen.val(valTen);
 
+        var valElev = JSON.parse(localStorage.getItem("11:00 am"));
+        hrElev.val(valElev);
+
+        var valTvel = JSON.parse(localStorage.getItem("12:00 pm"));
+        hrTvel.val(valTvel);
+
+        var valOne = JSON.parse(localStorage.getItem("01:00 pm"));
+        hrOne.val(valOne);
+
+        var valTwo = JSON.parse(localStorage.getItem("02:00 pm"));
+        hrTwo.val(valTwo);
+
+        var valThr = JSON.parse(localStorage.getItem("03:00 pm"));
+        hrThr.val(valThr);
+
+        var valFour = JSON.parse(localStorage.getItem("04:00 pm"));
+        hrFour.val(valFour);
+
+        var valFive = JSON.parse(localStorage.getItem("05:00 pm"));
+        hrFiv.val(valFive);
+        
         // create a function that would determine if the input is in the past, present or future
         function timeEras(){
           $(".form-control").each(function(){
@@ -164,23 +187,21 @@
         }
         timeEras()
 
-
         /// when save button click, data will be saved in local storage
         $(".saveButn").on("click", function(){
           //obtain user input 
           var userInput = $(this).siblings(".form-control").val().trim();
           // obtain slot time 
           var userTime = $(this).siblings(".input-group-prepend").text().trim();
-         
           //set up local storage
           localStorage.setItem(userTime, JSON.stringify(userInput)); 
-          ///test 
-          console.log(userTime)
-          console.log(userInput)
         })
 
-
         /// when reset button is clicked, all data would clear 
+        resetButn.click(function(){
+          $("id").text("");
+          localStorage.clear();
+        })
  })
     </script>
  
